@@ -23,17 +23,15 @@ use Yo\Service\SendYoService;
  */
 final class Yo
 {
+    /**
+     * @var \GuzzleHttp\Client
+     */
     protected $httpClient;
 
     /**
      * @var array
      */
     protected $options;
-
-    /**
-     * @var Service\SendYoService
-     */
-    protected $sendService;
 
     /**
      * @param array $options
@@ -46,15 +44,6 @@ final class Yo
 
         $this->options     = $resolver->resolve($options);
         $this->httpClient  = new Client();
-        $this->sendService = new SendYoService($this->httpClient, $this->options);
-    }
-
-    /**
-     * @return \GuzzleHttp\Message\ResponseInterface
-     */
-    public function yoAll()
-    {
-        return $this->sendService->yoAll();
     }
 
     /**

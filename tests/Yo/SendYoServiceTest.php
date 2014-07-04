@@ -19,16 +19,14 @@ class SendYoServiceTest extends \PHPUnit_Framework_TestCase
     /**
      * @var
      */
-    protected $service;
+    protected $yo;
 
     /**
      * Replace this fake token with a real one
      */
     public function setUp()
     {
-        $yo            = new Yo(['token' => 1234]);
-        $httpClient    = new Client();
-        $this->service = new SendYoService($httpClient, $yo->getOptions());
+        $this->yo = new Yo(['token' => 'myToken']);
     }
 
     /**
@@ -38,11 +36,10 @@ class SendYoServiceTest extends \PHPUnit_Framework_TestCase
      */
     public function it_should_not_send_a_yo_to_all()
     {
-        $yo         = new Yo(['token' => 1234]);
-        $httpClient = new Client();
-        $service    = new SendYoService($httpClient, $yo->getOptions());
+        $yo   = new Yo(['token' => 'errorToken']);
+        $send = new SendYoService($yo->getHttpClient(), $yo->getOptions());
 
-        $service->yoAll();
+        $send->yoAll();
     }
 
     /**
@@ -50,6 +47,7 @@ class SendYoServiceTest extends \PHPUnit_Framework_TestCase
      */
     public function it_should_send_a_yo_to_all()
     {
-        $this->service->yoAll();
+        $send = new SendYoService($this->yo->getHttpClient(), $this->yo->getOptions());
+        $send->yoAll();
     }
 } 

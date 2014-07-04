@@ -36,7 +36,8 @@ In a nutshell:
 <?php
 
 $yo = new \Yo(['token' => 'yourtoken']);
-$yo->yoAll();
+$send = new \Yo\Service\SendYoService($yo->getHttpClient(), $yo->getOptions());
+$send->yoAll();
 ```
 
 The `yoAll` method will send a yo to all your friends.
