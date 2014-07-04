@@ -1,0 +1,30 @@
+{
+    "name":         "black/yo-php",
+    "description":  "A Yo! client for PHP",
+    "keywords":     ["Yo", "Black"],
+    "type":         "library",
+    "license":      "MIT",
+    "authors":      [
+        {
+            "name":      "Alexandre 'pocky' Balmes",
+            "email":     "alexandre@lablackroom.com",
+            "homepage":  "www.lablackroom.com"
+        }
+    ],
+
+    "require": {
+        "php":                      ">=5.4.0",
+        "symfony/options-resolver": "~2.5",
+        "guzzlehttp/guzzle":        "~4"
+    },
+
+    "require-dev": {
+        "phpunit/phpunit": "~4.1"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Yo": "src/"
+        }
+    }
+}
