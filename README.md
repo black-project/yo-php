@@ -35,7 +35,7 @@ In a nutshell:
 
 <?php
 
-$yo = new \Yo(['token' => 'yourtoken']);
+$yo = new \Yo\Yo(['token' => 'yourtoken']);
 $send = new \Yo\Service\SendYoService($yo->getHttpClient(), $yo->getOptions());
 $send->yoAll();
 ```
