@@ -41,9 +41,12 @@ class SendYoService
      */
     public function yoAll()
     {
-        $response = $this->httpClient->post($this->options['base_url'], ['query' => ['api_token' => $this->options['token']]]);
+        $response = $this->httpClient->post(
+            $this->options['base_url'] . '/yoall/',
+            ['body' => ['api_token' => $this->options['token']]]
+        );
 
-        if ("200" !== $response->getStatusCode()) {
+        if ("201" !== $response->getStatusCode()) {
             throw new BadResponseException($response->getStatusCode(), (string) $response->getBody());
         }
 

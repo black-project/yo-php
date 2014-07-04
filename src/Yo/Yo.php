@@ -76,7 +76,7 @@ final class Yo
     protected function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-                'base_url' => 'http://api.justyo.co/'
+                'base_url' => 'http://api.justyo.co'
             ]);
     }
 } 

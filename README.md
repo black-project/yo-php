@@ -4,12 +4,6 @@ Yo PHP
 __Yo PHP__ is a [Yo][1] client written in PHP. This library is still a work in progress. The yoall method is supported and it's
 actually the only endpoint of the API but a receive service will be available for trigger a Yo sent to your API key.
 
-Warning
--------
-
-I don't have receive my API key so I am not sure if the `yoAll` method works well because I don't know the status code
-for the response so... be patient or create a PR ;)
-
 Installation
 ------------
 
