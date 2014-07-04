@@ -10,6 +10,11 @@
 
 namespace Yo\Service;
 
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Yo\Event\YoEvent;
+use Yo\Event\YoSubscriber;
+use Yo\Model\YoUser;
+
 /**
  * Class ReceiveYoService
  *
@@ -19,10 +24,19 @@ namespace Yo\Service;
 class ReceiveYoService
 {
     /**
-     * @TODO
+     * @param EventDispatcherInterface $dispatcher
      */
-    public function receive($yo)
+    public function __construct(EventDispatcherInterface $dispatcher)
     {
+        $this->dispatcher = $dispatcher;
+    }
 
+    /**
+     * @param YoUser $user
+     */
+    public function receive(YoUser $user)
+    {
+        $event = new YoEvent($user);
+        $this->dispatcher->dispatch('yo.receive', $event);
     }
 } 
