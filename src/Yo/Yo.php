@@ -44,7 +44,7 @@ final class Yo
         $this->setDefaultOptions($resolver);
         $this->configureOptions($resolver);
 
-        $this->options     = $options;
+        $this->options     = $resolver->resolve($options);
         $this->httpClient  = new Client();
         $this->sendService = new SendYoService($this->httpClient, $this->options);
     }
@@ -63,6 +63,14 @@ final class Yo
     public function getHttpClient()
     {
         return $this->httpClient;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOptions()
+    {
+        return $this->options;
     }
 
     /**

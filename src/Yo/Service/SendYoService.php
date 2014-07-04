@@ -10,7 +10,6 @@
 
 namespace Yo\Service;
 
-
 use Yo\Exception\BadResponseException;
 use GuzzleHttp\Client as HttpClient;
 
@@ -42,7 +41,7 @@ class SendYoService
      */
     public function yoAll()
     {
-        $response = $this->httpClient->post($this->options['base_url'], ['api_token' => $this->options['token']]);
+        $response = $this->httpClient->post($this->options['base_url'], ['query' => ['api_token' => $this->options['token']]]);
 
         if ("200" !== $response->getStatusCode()) {
             throw new BadResponseException($response->getStatusCode(), (string) $response->getBody());
