@@ -17,7 +17,6 @@ use Yo\Event\Yo2Subscriber;
 use Yo\Event\YoSubscriber;
 use Yo\Model\YoUser;
 use Yo\Service\ReceiveYoService;
-use Yo\Service\SendYoService;
 
 class ReceiveYoServiceTest extends \PHPUnit_Framework_TestCase
 {

@@ -23,18 +23,77 @@ constraint.
 Usage
 -----
 
-In a nutshell:
+`yoAll` nutshell:
+
+_The `yoAll` method will send a yo to all your friends._
 
 ```php
 
 <?php
 
-$yo = new \Yo\Yo(['token' => 'yourtoken']);
+$yo   = new \Yo\Yo(['token' => 'yourtoken']);
 $send = new \Yo\Service\SendYoService($yo->getHttpClient(), $yo->getOptions());
 $send->yoAll();
 ```
 
-The `yoAll` method will send a yo to all your friends.
+Receive a yo:
+
+During the registration process, Yo will ask an url for ping your service when an user Yo you with GET request and the
+`username` query parameter.
+
+You need to create a dedicated controller. For example:
+
+```php
+
+<?php
+
+namespace Yo\Controller;
+
+class YoController
+{
+    public function yoAction($username)
+    {
+        $yoUser     = new \Yo\Model\YoUser($username);
+        $dispatcher = new \Symfony\Component\EventDispatcher\EventDispatcher();
+        $dispatcher->addSubscriber(new YourSubscriber());
+
+        $yo = new \Yo\Service\ReceiveYoService($dispatcher);
+        $yo->receive($yoUser);
+    }
+}
+```
+
+As you can see, the `ReceiveYoService` will dispatch an event named `yo.receive` and getting his information from a
+`YoUser`.
+
+I made the choice of create a true model because you maybe want to persist all your Yo friends in a database or
+anything you want.
+
+A "default" subscriber is located in `Yo/Event` directory. This YoSubscriber will add a new line in your Monolog logs.
+If you want to use it, use this sample code (or see the `./tests/Yo/ReceiveYoServiceTest`:
+
+```php
+
+<?php
+
+namespace Yo\Controller;
+
+class YoController
+{
+    public function yoAction($username)
+    {
+        $yoUser     = new \Yo\Model\YoUser($username);
+        $logger     = new Monolog\Logger();
+        $dispatcher = new \Symfony\Component\EventDispatcher\EventDispatcher();
+
+        $dispatcher->addSubscriber(new \Yo\Event\YoSubscriber($logger));
+
+        $yo = new \Yo\Service\ReceiveYoService($dispatcher);
+        $yo->receive($yoUser);
+    }
+}
+```
+
 
 Running the tests
 -----------------
