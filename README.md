@@ -4,6 +4,9 @@ Yo PHP
 __Yo PHP__ is a [Yo][1] client written in PHP. This library is still a work in progress. The yoall method is supported and it's
 actually the only endpoint of the API but a receive service will be available for trigger a Yo sent to your API key.
 
+[![Build Status](https://travis-ci.org/black-project/yo-php.svg?branch=master)](https://travis-ci.org/black-project/yo-php)
+[![Build Status](https://travis-ci.org/black-project/yo-php.svg?branch=master)](https://travis-ci.org/black-project/yo-php)
+
 Installation
 ------------
 
