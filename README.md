@@ -17,13 +17,13 @@ The recomanded way to install Yo PHP is through [Composer][2]:
 }
 ```
 
-__Protip:__ you should browse the `black/yo-php`page to choose a stable version to use, avoid the `@stable` meta
+__Protip:__ you should browse the `[black/yo-php][7]`page to choose a stable version to use, avoid the `@stable` meta
 constraint.
 
 Usage
 -----
 
-`yoAll` nutshell:
+__`yoAll` nutshell:__
 
 _The `yoAll` method will send a yo to all your friends._
 
@@ -36,12 +36,12 @@ $send = new \Yo\Service\SendYoService($yo->getHttpClient(), $yo->getOptions());
 $send->yoAll();
 ```
 
-Receive a yo:
+__Receive a yo:__
 
-During the registration process, Yo will ask an url for ping your service when an user Yo you with GET request and the
-`username` query parameter.
+During the registration process, Yo will ask to if you want to know when an Yo user Yo you. This pingback send you a
+ GET request with the Yo `username` query parameter.
 
-You need to create a dedicated controller. For example:
+So... You need to create a dedicated controller. For example:
 
 ```php
 
@@ -69,7 +69,7 @@ As you can see, the `ReceiveYoService` will dispatch an event named `yo.receive`
 I made the choice of create a true model because you maybe want to persist all your Yo friends in a database or
 anything you want.
 
-A "default" subscriber is located in `Yo/Event` directory. This YoSubscriber will add a new line in your Monolog logs.
+A "default" subscriber is located in `Yo/Event` directory. This `YoSubscriber` will add a new line in your Monolog logs.
 If you want to use it, use this sample code (or see the `./tests/Yo/ReceiveYoServiceTest`:
 
 ```php
@@ -98,8 +98,8 @@ class YoController
 Running the tests
 -----------------
 
-There is no developement key for Yo so the only way to pass the tests suite is to replace the fake token and run the
-suites.
+There is no development key for Yo so the only way to pass the tests suite is to replace the fake token and run the
+test suite.
 
 Contributing
 ------------
@@ -109,7 +109,8 @@ See CONTRIBUTING file.
 Credits
 -------
 
-This README heavily inspired by [Hateoas][4] by @willdurand and he needs your [PR][5].
+This README is heavily inspired by [Hateoas][4] library by the great [@willdurand][8]. This guy needs your [PR][5] for the
+sake of the REST in PHP.
 
 Alexandre "pocky" Balmes [alexandre@lablackroom.com][3]. Send me [Flattrs][6] if you love my work or hire me!
 
@@ -124,3 +125,5 @@ Yo PHP is released under the MIT License. See the bundled LICENSE file for detai
 [4]: https://github.com/willdurand/Hateoas
 [5]: http://williamdurand.fr/2014/07/02/resting-with-symfony-sos/
 [6]: https://flattr.com/profile/alexandre.balmes
+[7]: https://packagist.org/packages/black/yo-php
+[8]: https://github.com/willdurand
