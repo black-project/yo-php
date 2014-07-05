@@ -17,7 +17,7 @@ The recomanded way to install Yo PHP is through [Composer][2]:
 }
 ```
 
-__Protip:__ you should browse the `[black/yo-php][7]`page to choose a stable version to use, avoid the `@stable` meta
+__Protip:__ you should browse the [`black/yo-php`][7] page to choose a stable version to use, avoid the `@stable` meta
 constraint.
 
 Usage
