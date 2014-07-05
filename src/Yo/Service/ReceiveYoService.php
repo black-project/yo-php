@@ -12,7 +12,6 @@ namespace Yo\Service;
 
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Yo\Event\YoEvent;
-use Yo\Event\YoSubscriber;
 use Yo\Model\YoUser;
 
 /**

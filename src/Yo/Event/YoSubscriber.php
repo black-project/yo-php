@@ -10,10 +10,15 @@
 
 namespace Yo\Event;
 
-
 use Monolog\Logger;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
+/**
+ * Class YoSubscriber
+ *
+ * @author  Alexandre 'pocky' Balmes <alexandre@lablackroom.com>
+ * @license http://opensource.org/licenses/mit-license.php MIT
+ */
 class YoSubscriber implements EventSubscriberInterface
 {
     /**
@@ -35,7 +40,7 @@ class YoSubscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param YoEvent $yo
+     * @param YoEvent $event
      */
     public function onReceiveYo(YoEvent $event)
     {

@@ -10,10 +10,15 @@
 
 namespace Yo\Event;
 
-
 use Symfony\Component\EventDispatcher\Event;
 use Yo\Model\YoUser;
 
+/**
+ * Class YoEvent
+ *
+ * @author  Alexandre 'pocky' Balmes <alexandre@lablackroom.com>
+ * @license http://opensource.org/licenses/mit-license.php MIT
+ */
 class YoEvent extends Event
 {
     /**

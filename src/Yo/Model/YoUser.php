@@ -10,7 +10,12 @@
 
 namespace Yo\Model;
 
-
+/**
+ * Class YoUser
+ *
+ * @author  Alexandre 'pocky' Balmes <alexandre@lablackroom.com>
+ * @license http://opensource.org/licenses/mit-license.php MIT
+ */
 class YoUser
 {
     /**

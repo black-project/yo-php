@@ -13,7 +13,6 @@ namespace Yo;
 use GuzzleHttp\Client;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Yo\Service\SendYoService;
 
 /**
  * Class Yo

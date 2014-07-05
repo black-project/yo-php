@@ -13,11 +13,16 @@ namespace Yo;
 use Monolog\Handler\TestHandler;
 use Monolog\Logger;
 use Symfony\Component\EventDispatcher\EventDispatcher;
-use Yo\Event\Yo2Subscriber;
 use Yo\Event\YoSubscriber;
 use Yo\Model\YoUser;
 use Yo\Service\ReceiveYoService;
 
+/**
+ * Class ReceiveYoServiceTest
+ *
+ * @author  Alexandre 'pocky' Balmes <alexandre@lablackroom.com>
+ * @license http://opensource.org/licenses/mit-license.php MIT
+ */
 class ReceiveYoServiceTest extends \PHPUnit_Framework_TestCase
 {
     /**
