@@ -33,7 +33,7 @@ class YoTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @expectedException Symfony\Component\OptionsResolver\Exception\MissingOptionsException
+     * @expectedException \Symfony\Component\OptionsResolver\Exception\MissingOptionsException
      */
     public function it_should_not_create_a_yo()
     {

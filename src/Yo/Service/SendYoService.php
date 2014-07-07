@@ -58,4 +58,27 @@ class SendYoService
 
         return $response;
     }
+
+    /**
+     * @param $username
+     *
+     * @return \GuzzleHttp\Message\ResponseInterface
+     * @throws \Yo\Exception\BadResponseException
+     */
+    public function yo($username)
+    {
+        $response = $this->httpClient->post(
+            $this->options['base_url'] . '/yo/',
+            ['body' => [
+                'api_token' => $this->options['token'],
+                'username' => $username
+            ]]
+        );
+
+        if ("201" !== $response->getStatusCode()) {
+            throw new BadResponseException($response->getStatusCode(), (string) $response->getBody());
+        }
+
+        return $response;
+    }
 } 

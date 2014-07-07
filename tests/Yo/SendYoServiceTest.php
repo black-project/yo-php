@@ -56,4 +56,23 @@ class SendYoServiceTest extends \PHPUnit_Framework_TestCase
         $send = new SendYoService($this->yo->getHttpClient(), $this->yo->getOptions());
         $this->assertEquals('201', $send->yoAll()->getStatusCode());
     }
+
+    /**
+     * @test
+     * @expectedException GuzzleHttp\Exception\ClientException
+     */
+    public function it_should_not_send_a_yo_because_we_are_not_friend()
+    {
+        $send = new SendYoService($this->yo->getHttpClient(), $this->yo->getOptions());
+        $send->yo('FAKEUSERNAMEWAIWAI');
+    }
+
+    /**
+     * @test
+     */
+    public function it_should_send_a_yo_to_a_friend()
+    {
+        $send = new SendYoService($this->yo->getHttpClient(), $this->yo->getOptions());
+        $this->assertEquals('201', $send->yo('POCKYSTAR')->getStatusCode());
+    }
 }
