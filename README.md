@@ -1,8 +1,7 @@
 Yo PHP
 ======
 
-__Yo PHP__ is a [Yo][1] client written in PHP. This library is still a work in progress. The yoall method is supported and it's
-actually the only endpoint of the API but a receive service will be available for trigger a Yo sent to your API key.
+__Yo PHP__ is a [Yo][1] client written in PHP. This library is still a work in progress.
 
 [![Build Status](https://travis-ci.org/black-project/yo-php.svg?branch=master)](https://travis-ci.org/black-project/yo-php)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/eec93d37-ced3-434d-9b83-dc5537eaca2f/big.png)](https://insight.sensiolabs.com/projects/eec93d37-ced3-434d-9b83-dc5537eaca2f)
@@ -37,6 +36,20 @@ _The `yoAll` method will send a yo to all your friends._
 $yo   = new \Yo\Yo(['token' => 'yourtoken']);
 $send = new \Yo\Service\SendYoService($yo->getHttpClient(), $yo->getOptions());
 $send->yoAll();
+```
+
+__`yo` nutshell:__
+
+_The `yo` method will send a yo to a dedicated usernme. This username __MUST__ be in uppercase and this is your
+responsibility._
+
+```php
+
+<?php
+
+$yo   = new \Yo\Yo(['token' => 'yourtoken']);
+$send = new \Yo\Service\SendYoService($yo->getHttpClient(), $yo->getOptions());
+$send->yo('USERNAME');
 ```
 
 __Receive a yo:__
@@ -102,7 +115,7 @@ Running the tests
 -----------------
 
 There is no development key for Yo so the only way to pass the tests suite is to replace the fake token and run the
-test suite.
+tests.
 
 Contributing
 ------------
