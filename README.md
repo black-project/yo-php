@@ -4,7 +4,7 @@ Yo PHP
 __Yo PHP__ is a [Yo][1] client written in PHP. This library is still a work in progress.
 
 [![Build Status](https://travis-ci.org/black-project/yo-php.svg?branch=master)](https://travis-ci.org/black-project/yo-php)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/eec93d37-ced3-434d-9b83-dc5537eaca2f/big.png)](https://insight.sensiolabs.com/projects/eec93d37-ced3-434d-9b83-dc5537eaca2f)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/fa5c643c-812d-49ef-ac95-fb80a27a3d87/big.png)](https://insight.sensiolabs.com/projects/fa5c643c-812d-49ef-ac95-fb80a27a3d87)
 
 Installation
 ------------
