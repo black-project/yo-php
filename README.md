@@ -27,7 +27,7 @@ Usage
 
 __`yoAll` nutshell:__
 
-_The `yoAll` method will send a yo to all your friends._
+The `yoAll` method will send a yo to all your friends.
 
 ```php
 
@@ -40,8 +40,8 @@ $send->yoAll();
 
 __`yo` nutshell:__
 
-_The `yo` method will send a yo to a dedicated usernme. This username __MUST__ be in uppercase and this is your
-responsibility._
+The `yo` method will send a yo to a dedicated username. This username __MUST__ be in uppercase and this is your
+responsibility.
 
 ```php
 
@@ -51,6 +51,25 @@ $yo   = new \Yo\Yo(['token' => 'yourtoken']);
 $send = new \Yo\Service\SendYoService($yo->getHttpClient(), $yo->getOptions());
 $send->yo('USERNAME');
 ```
+
+__`subscribers_count` nutshell:__
+
+The `subscribersCount` method will retrieve the number of your subscribers. This is just a GET request with a json
+response.
+
+```php
+
+<?php
+
+$yo     = new \Yo\Yo(['token' => 'yourtoken']);
+$status = new \Yo\Service\StatusService($yo->getHttpClient(), $yo->getOptions());
+
+$subscribers = $status->subscribersCount();
+
+```
+
+If you want to convert the json to an array just replace `$status->subscribersCount()` by
+ `$status->subscribersCount()->json()`
 
 __Receive a yo:__
 
