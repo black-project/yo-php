@@ -37,7 +37,7 @@ class YoTest extends \PHPUnit_Framework_TestCase
      */
     public function it_should_not_create_a_yo()
     {
-        $yo = new Yo();
+        return new Yo();
     }
 }
  

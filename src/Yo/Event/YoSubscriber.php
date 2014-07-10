@@ -22,6 +22,11 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class YoSubscriber implements EventSubscriberInterface
 {
     /**
+     * @var \Monolog\Logger
+     */
+    protected $logger;
+
+    /**
      * @param Logger $logger
      */
     public function __construct(Logger $logger)
