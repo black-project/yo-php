@@ -11,8 +11,6 @@
 namespace Yo;
 
 use Yo\Service\SendYoService;
-use Yo\Yo;
-use GuzzleHttp\Client;
 
 /**
  * Class SendYoServiceTest
