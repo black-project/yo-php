@@ -21,8 +21,10 @@ The recomanded way to install Yo PHP is through [Composer][2]:
 }
 ```
 
-__Protip:__ you should browse the [`black/yo-php`][7] page to choose a stable version to use, avoid the `@stable` meta
+__Protip:__ You should browse the [`black/yo-php`][7] page to choose a stable version to use, avoid the `@stable` meta
 constraint.
+
+__Yotip:__ You want to know when yo-php is updated? Add YOPHPCLIENT \o/!
 
 Usage
 -----
@@ -149,7 +151,7 @@ Credits
 This README is heavily inspired by [Hateoas][4] library by the great [@willdurand][8]. This guy needs your [PR][5] for the
 sake of the REST in PHP.
 
-Alexandre "pocky" Balmes [alexandre@lablackroom.com][3]. Send me [Flattrs][6] if you love my work or hire me!
+Alexandre "pocky" Balmes [alexandre@lablackroom.com][3]. Send me [Flattrs][6] if you love my work, [buy me gift][9] or hire me!
 
 
 License
@@ -164,3 +166,4 @@ Yo PHP is released under the MIT License. See the bundled LICENSE file for detai
 [6]: https://flattr.com/profile/alexandre.balmes
 [7]: https://packagist.org/packages/black/yo-php
 [8]: https://github.com/willdurand
+[9]: http://www.amazon.fr/registry/wishlist/3OR3EENRA5
