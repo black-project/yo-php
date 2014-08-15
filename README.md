@@ -189,4 +189,4 @@ Yo PHP is released under the MIT License. See the bundled LICENSE file for detai
 [6]: https://flattr.com/profile/alexandre.balmes
 [7]: https://packagist.org/packages/black/yo-php
 [8]: https://github.com/willdurand
-[9]: http://www.amazon.fr/registry/wishlist/3OR3EENRA5
+[9]: http://www.amazon.fr/registry/wishlist/3OR3EENRA5TSK
