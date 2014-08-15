@@ -77,7 +77,8 @@ If you want to convert the json to an array just replace `$status->subscribersCo
 
 
 __Send a link:__
-It is possible to send a link through Yo since 08/15/2014. Just add a `link` key to the constructore of `new Yo()` or
+
+It is possible to send a link through Yo since 08/15/2014. Just add a `link` key to the constructor of `new Yo()` or
 use `$yo->addLink('url://myurl.com');`.
 
 ```php`
