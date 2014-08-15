@@ -49,7 +49,10 @@ class SendYoService
     {
         $response = $this->httpClient->post(
             $this->options['base_url'] . '/yoall/',
-            ['body' => ['api_token' => $this->options['token']]]
+            ['body' => [
+                'api_token' => $this->options['token'],
+                'link' => $this->options['link']
+            ]]
         );
 
         if ("201" !== $response->getStatusCode()) {
@@ -71,11 +74,12 @@ class SendYoService
             $this->options['base_url'] . '/yo/',
             ['body' => [
                 'api_token' => $this->options['token'],
-                'username' => $username
+                'username' => $username,
+                'link' => $this->options['link']
             ]]
         );
 
-        if ("201" !== $response->getStatusCode()) {
+        if ("200" !== $response->getStatusCode()) {
             throw new BadResponseException($response->getStatusCode(), (string) $response->getBody());
         }
 

@@ -49,7 +49,9 @@ class StatusService
     {
         $response = $this->httpClient->get(
             $this->options['base_url'] . '/subscribers_count/',
-            ['query' => ['api_token' => $this->options['token']]]
+            ['query' => [
+                'api_token' => $this->options['token']
+            ]]
         );
 
         if ("200" !== $response->getStatusCode()) {

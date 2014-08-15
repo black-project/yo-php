@@ -62,6 +62,16 @@ final class Yo
     }
 
     /**
+     * @param $link
+     */
+    public function addLink($link)
+    {
+        if ($link && filter_var($link, FILTER_VALIDATE_URL)) {
+            $this->options['link'] = $link;
+        }
+    }
+
+    /**
      * @param OptionsResolverInterface $resolver
      */
     protected function configureOptions(OptionsResolverInterface $resolver)
@@ -75,7 +85,8 @@ final class Yo
     protected function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-                'base_url' => 'http://api.justyo.co'
+                'base_url' => 'http://api.justyo.co',
+                'link' => '',
             ]);
     }
 } 

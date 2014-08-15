@@ -28,6 +28,8 @@ class YoTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEmpty($yo->getOptions());
         $this->assertArrayHasKey('base_url', $yo->getOptions());
         $this->assertArrayHasKey('token', $yo->getOptions());
+        $this->assertArrayHasKey('link', $yo->getOptions());
+
         $this->assertInstanceOf('GuzzleHttp\Client', $yo->getHttpClient());
     }
 

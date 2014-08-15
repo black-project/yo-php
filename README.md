@@ -75,6 +75,29 @@ $subscribers = $status->subscribersCount();
 If you want to convert the json to an array just replace `$status->subscribersCount()` by
  `$status->subscribersCount()->json()`
 
+
+__Send a link:__
+It is possible to send a link through Yo since 08/15/2014. Just add a `link` key to the constructore of `new Yo()` or
+use `$yo->addLink('url://myurl.com');`.
+
+```php`
+<?php
+
+$yo   = new \Yo\Yo(['token' => 'yourtoken', 'link' => 'http://www.desicomments.com/dc/21/50927/50927.gif']);
+$send = new \Yo\Service\SendYoService($yo->getHttpClient(), $yo->getOptions());
+$send->yoAll();
+```
+
+```php`
+<?php
+
+$yo   = new \Yo\Yo(['token' => 'yourtoken');
+$yo->addLink('http://www.desicomments.com/dc/21/50927/50927.gif');
+
+$send = new \Yo\Service\SendYoService($yo->getHttpClient(), $yo->getOptions());
+$send->yoAll();
+```
+
 __Receive a yo:__
 
 During the registration process, Yo will ask to if you want to know when an Yo user Yo you. This pingback send you a

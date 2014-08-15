@@ -34,9 +34,7 @@ class SendYoServiceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * This test is invalid because endpoint return 201 with a wrong token
-     *
-     * @expectedException Yo\Exception\BadResponseException
+     * @expectedException GuzzleHttp\Exception\ClientException
      */
     public function it_should_not_send_a_yo_to_all()
     {
@@ -71,6 +69,17 @@ class SendYoServiceTest extends \PHPUnit_Framework_TestCase
     public function it_should_send_a_yo_to_a_friend()
     {
         $send = new SendYoService($this->yo->getHttpClient(), $this->yo->getOptions());
-        $this->assertEquals('201', $send->yo('POCKYSTAR')->getStatusCode());
+        $this->assertEquals('200', $send->yo('POCKYSTAR')->getStatusCode());
+    }
+
+    /**
+     * @test
+     */
+    public function it_should_send_a_yo_with_link()
+    {
+        $this->yo->addLink('http://www.desicomments.com/dc/21/50927/50927.gif');
+
+        $send = new SendYoService($this->yo->getHttpClient(), $this->yo->getOptions());
+        $this->assertEquals('201', $send->yoAll()->getStatusCode());
     }
 }
