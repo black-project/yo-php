@@ -42,4 +42,3 @@ class YoTest extends \PHPUnit_Framework_TestCase
         return new Yo();
     }
 }
- 

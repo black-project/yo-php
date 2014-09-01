@@ -39,7 +39,6 @@ class YoEvent extends Event
      */
     public function getYoUser()
     {
-
         return $this->yoUser;
     }
-} 
+}

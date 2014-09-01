@@ -21,7 +21,7 @@ final class BadResponseException extends \Exception
 {
     /**
      * @param string $statusCode
-     * @param null $message
+     * @param null   $message
      */
     public function __construct($statusCode, $message = null)
     {

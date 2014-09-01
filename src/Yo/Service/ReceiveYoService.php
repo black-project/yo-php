@@ -43,4 +43,4 @@ class ReceiveYoService
         $event = new YoEvent($user);
         $this->dispatcher->dispatch('yo.receive', $event);
     }
-} 
+}

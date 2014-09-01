@@ -33,7 +33,7 @@ class StatusService
 
     /**
      * @param HttpClient $httpClient
-     * @param array $options
+     * @param array      $options
      */
     public function __construct(HttpClient $httpClient, array $options = [])
     {
@@ -60,4 +60,4 @@ class StatusService
 
         return $response;
     }
-} 
+}

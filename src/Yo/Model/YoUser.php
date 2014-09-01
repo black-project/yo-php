@@ -38,4 +38,4 @@ class YoUser
     {
         return $this->username;
     }
-} 
+}

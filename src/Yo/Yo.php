@@ -89,4 +89,4 @@ final class Yo
                 'link' => '',
             ]);
     }
-} 
+}

@@ -37,7 +37,7 @@ class YoSubscriber implements EventSubscriberInterface
     /**
      * @return array
      */
-    static public function getSubscribedEvents()
+    public static function getSubscribedEvents()
     {
         return [
             'yo.receive' => ['onReceiveYo', 0]
@@ -51,4 +51,4 @@ class YoSubscriber implements EventSubscriberInterface
     {
         $this->logger->log('info', sprintf('Just received a new Yo from %s', $event->getYoUser()->getUsername()));
     }
-} 
+}
