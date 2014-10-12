@@ -4,16 +4,15 @@ namespace spec\Yo;
 
 use Geo\Coordinates;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class YoSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Yo\Yo');
     }
 
-    function let()
+    public function let()
     {
         $options = [
             'token' => 1234
@@ -22,12 +21,12 @@ class YoSpec extends ObjectBehavior
         $this->beConstructedWith($options);
     }
 
-    function it_should_have_an_http_client()
+    public function it_should_have_an_http_client()
     {
         $this->getHttpClient()->shouldImplement('GuzzleHttp\Client');
     }
 
-    function it_should_have_options()
+    public function it_should_have_options()
     {
         $this->getOptions()->shouldBeArray();
         $this->getOptions()->shouldHaveCount(4);
@@ -37,7 +36,7 @@ class YoSpec extends ObjectBehavior
         $this->getOptions()['location']->shouldReturn('');
     }
 
-    function it_should_add_a_link()
+    public function it_should_add_a_link()
     {
         $coordinates = new Coordinates(37.42242, -122.08585);
         $this->addLocation($coordinates);
@@ -47,7 +46,7 @@ class YoSpec extends ObjectBehavior
         $this->getOptions()['location']->shouldBeNull();
     }
 
-    function it_should_add_a_location()
+    public function it_should_add_a_location()
     {
         $coordinates = new Coordinates(37.42242, -122.08585);
         $this->addLink('http://www.google.com');
@@ -58,7 +57,7 @@ class YoSpec extends ObjectBehavior
 
     }
 
-    function it_should_ensure_valid_options()
+    public function it_should_ensure_valid_options()
     {
         $options = [
             'token' => 1234,
@@ -71,7 +70,7 @@ class YoSpec extends ObjectBehavior
         $this->getOptions()['link']->shouldBeNull();
     }
 
-    function it_should_not_create_a_yo()
+    public function it_should_not_create_a_yo()
     {
         $this
             ->shouldThrow('\Symfony\Component\OptionsResolver\Exception\MissingOptionsException')
