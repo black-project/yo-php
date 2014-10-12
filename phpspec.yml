@@ -1,0 +1,4 @@
+suites:
+    yo_suite:
+        namespace: Yo
+        spec_path: ./src/

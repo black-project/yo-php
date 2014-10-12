@@ -42,5 +42,9 @@ class ReceiveYoService
     {
         $event = new YoEvent($user);
         $this->dispatcher->dispatch('yo.receive', $event);
+
+        if ($user->getLocation()) {
+            $this->dispatcher->dispatch('yo.location', $event);
+        }
     }
 }

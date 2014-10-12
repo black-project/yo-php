@@ -40,7 +40,8 @@ class YoSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            'yo.receive' => ['onReceiveYo', 0]
+            'yo.receive' => ['onReceiveYo', 0],
+            'yo.location' => ['onReceiveLocation', 0]
         ];
     }
 
@@ -50,5 +51,13 @@ class YoSubscriber implements EventSubscriberInterface
     public function onReceiveYo(YoEvent $event)
     {
         $this->logger->log('info', sprintf('Just received a new Yo from %s', $event->getYoUser()->getUsername()));
+    }
+
+    /**
+     * @param YoEvent $event
+     */
+    public function onReceiveLocation(YoEvent $event)
+    {
+        $this->logger->log('info', sprintf('Just received a new Yo from %s', $event->getYoUser()->getLocation()->getCoordinates()));
     }
 }

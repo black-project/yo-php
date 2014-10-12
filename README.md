@@ -29,7 +29,7 @@ __Yotip:__ You want to know when yo-php is updated? Add YOPHPCLIENT \o/!
 Usage
 -----
 
-__`yoAll` nutshell:__
+#### `yoAll` nutshell:
 
 The `yoAll` method will send a yo to all your friends.
 
@@ -42,7 +42,7 @@ $send = new \Yo\Service\SendYoService($yo->getHttpClient(), $yo->getOptions());
 $send->yoAll();
 ```
 
-__`yo` nutshell:__
+#### `yo` nutshell:
 
 The `yo` method will send a yo to a dedicated username. This username __MUST__ be in uppercase and this is your
 responsibility.
@@ -56,7 +56,7 @@ $send = new \Yo\Service\SendYoService($yo->getHttpClient(), $yo->getOptions());
 $send->yo('USERNAME');
 ```
 
-__`subscribers_count` nutshell:__
+#### `subscribers_count` nutshell:
 
 The `subscribersCount` method will retrieve the number of your subscribers. This is just a GET request with a json
 response.
@@ -76,12 +76,12 @@ If you want to convert the json to an array just replace `$status->subscribersCo
  `$status->subscribersCount()->json()`
 
 
-__Send a link:__
+#### Send a link:
 
 It is possible to send a link through Yo since 08/15/2014. Just add a `link` key to the constructor of `new Yo()` or
 use `$yo->addLink('url://myurl.com');`.
 
-```php`
+```php
 <?php
 
 $yo   = new \Yo\Yo(['token' => 'yourtoken', 'link' => 'http://www.desicomments.com/dc/21/50927/50927.gif']);
@@ -89,7 +89,7 @@ $send = new \Yo\Service\SendYoService($yo->getHttpClient(), $yo->getOptions());
 $send->yoAll();
 ```
 
-```php`
+```php
 <?php
 
 $yo   = new \Yo\Yo(['token' => 'yourtoken');
@@ -99,10 +99,32 @@ $send = new \Yo\Service\SendYoService($yo->getHttpClient(), $yo->getOptions());
 $send->yoAll();
 ```
 
-__Receive a yo:__
+#### Send a location:
+
+It is possible to send your location since 10/07/2014. Just add a `location` key to the constructor of `new Yo()` or
+use this code.
+
+```php
+
+$coordinates = new Geo\Coordinates(latitude, longitude);
+$yo->addLocation($coordinates);
+```
+
+__Warning 1__
+It is not possible to receive or send link and location at the same time. When you construct a Yo with link and location,
+link is always overrided to null.
+
+If you use `->add(Location|Link)` function, the class will set the other parameter to null. The code is very simple so take
+your time and look at the `src/spec/Yo/YoSpec.php`.
+
+__Warning 2__
+Yo api not using a valid format for coordinates. They use ";" instead of "," 
+so be aware of this and don't forget to explode/convert your values (see example below).
+
+#### Receive a yo:
 
 During the registration process, Yo will ask to if you want to know when an Yo user Yo you. This pingback send you a
- GET request with the Yo `username` query parameter.
+ GET request with the Yo `username` and `location` query parameters.
 
 So... You need to create a dedicated controller. For example:
 
@@ -114,9 +136,16 @@ namespace Yo\Controller;
 
 class YoController
 {
-    public function yoAction($username)
+    public function yoAction($username, $location = null)
     {
-        $yoUser     = new \Yo\Model\YoUser($username);
+        $yoUser   = new \Yo\Model\YoUser($username);
+        
+        if (null !== $location) {
+            $location    = explode(";", $location);
+            $coordinates = new Geo\Coordinates($location[0], $location[1]);
+            $yoUser->addLocation($location);
+        }
+
         $dispatcher = new \Symfony\Component\EventDispatcher\EventDispatcher();
         $dispatcher->addSubscriber(new YourSubscriber());
 
@@ -156,7 +185,6 @@ class YoController
     }
 }
 ```
-
 
 Running the tests
 -----------------

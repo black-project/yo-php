@@ -10,6 +10,7 @@
 
 namespace Yo;
 
+use Geo\Coordinates;
 use Yo\Service\SendYoService;
 
 /**
@@ -78,6 +79,18 @@ class SendYoServiceTest extends \PHPUnit_Framework_TestCase
     public function it_should_send_a_yo_with_link()
     {
         $this->yo->addLink('http://www.desicomments.com/dc/21/50927/50927.gif');
+
+        $send = new SendYoService($this->yo->getHttpClient(), $this->yo->getOptions());
+        $this->assertEquals('201', $send->yoAll()->getStatusCode());
+    }
+
+    /**
+     * @test
+     */
+    public function it_should_send_a_yo_with_location()
+    {
+        $coordinates = new Coordinates(37.42242, -122.08585);
+        $this->yo->addLocation($coordinates);
 
         $send = new SendYoService($this->yo->getHttpClient(), $this->yo->getOptions());
         $this->assertEquals('201', $send->yoAll()->getStatusCode());

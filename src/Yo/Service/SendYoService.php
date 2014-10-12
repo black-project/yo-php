@@ -51,7 +51,8 @@ class SendYoService
             $this->options['base_url'] . '/yoall/',
             ['body' => [
                 'api_token' => $this->options['token'],
-                'link' => $this->options['link']
+                'link' => $this->options['link'],
+                'location' => $this->options['location'],
             ]]
         );
 
@@ -75,7 +76,8 @@ class SendYoService
             ['body' => [
                 'api_token' => $this->options['token'],
                 'username' => $username,
-                'link' => $this->options['link']
+                'link' => $this->options['link'],
+                'location' => $this->options['location'],
             ]]
         );
 

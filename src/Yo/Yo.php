@@ -10,7 +10,9 @@
 
 namespace Yo;
 
+use Geo\Coordinates;
 use GuzzleHttp\Client;
+use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
@@ -41,8 +43,10 @@ final class Yo
         $this->setDefaultOptions($resolver);
         $this->configureOptions($resolver);
 
-        $this->options     = $resolver->resolve($options);
-        $this->httpClient  = new Client();
+        $this->options = $resolver->resolve($options);
+        $this->ensureValidOptions();
+
+        $this->httpClient = new Client();
     }
 
     /**
@@ -66,9 +70,25 @@ final class Yo
      */
     public function addLink($link)
     {
+        if ("" !== $this->options['location']) {
+            $this->options['location'] = null;
+        }
+
         if ($link && filter_var($link, FILTER_VALIDATE_URL)) {
             $this->options['link'] = $link;
         }
+    }
+
+    /**
+     * @param Coordinates $coordinates
+     */
+    public function addLocation(Coordinates $coordinates)
+    {
+        if ("" !== $this->options['link']) {
+            $this->options['link'] = null;
+        }
+
+        $this->options['location'] = $coordinates->getLatitude() . ';' . $coordinates->getLongitude();
     }
 
     /**
@@ -85,8 +105,21 @@ final class Yo
     protected function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-                'base_url' => 'http://api.justyo.co',
-                'link' => '',
-            ]);
+            'base_url' => 'http://api.justyo.co',
+            'link' => '',
+            'location' => '',
+        ]);
+    }
+
+    /**
+     *
+     */
+    protected function ensureValidOptions()
+    {
+        $options = $this->getOptions();
+
+        if ("" !== $options['link'] && "" !== $options['location']) {
+            $this->options['link'] = null;
+        }
     }
 }

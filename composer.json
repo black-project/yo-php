@@ -17,11 +17,15 @@
         "symfony/options-resolver": "~2.5",
         "symfony/event-dispatcher": "~2.5",
         "guzzlehttp/guzzle":        "~4",
-        "monolog/monolog":          "~1.10"
+        "black/geo":                "~1.0"
     },
 
     "require-dev": {
         "phpunit/phpunit": "~4.1"
+    },
+
+    "suggest": {
+        "monolog/monolog": "~1.10"
     },
 
     "autoload": {

@@ -10,6 +10,8 @@
 
 namespace Yo\Model;
 
+use Geo\Coordinates;
+
 /**
  * Class YoUser
  *
@@ -22,6 +24,11 @@ class YoUser
      * @var
      */
     protected $username;
+
+    /**
+     * @var
+     */
+    protected $location;
 
     /**
      * @param $username
@@ -37,5 +44,21 @@ class YoUser
     public function getUsername()
     {
         return $this->username;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * @param $coordinates
+     */
+    public function addLocation(Coordinates $coordinates)
+    {
+        $this->location = $coordinates;
     }
 }
