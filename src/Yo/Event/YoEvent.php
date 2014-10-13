@@ -19,12 +19,12 @@ use Yo\Model\YoUser;
  * @author  Alexandre 'pocky' Balmes <alexandre@lablackroom.com>
  * @license http://opensource.org/licenses/mit-license.php MIT
  */
-class YoEvent extends Event
+final class YoEvent extends Event
 {
     /**
      * @var \Yo\Model\YoUser
      */
-    protected $yoUser;
+    private $yoUser;
 
     /**
      * @param YoUser $yoUser
