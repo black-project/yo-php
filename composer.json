@@ -1,8 +1,9 @@
 {
     "name":         "black/yo-php",
+    "type":         "library",
     "description":  "A Yo! client for PHP",
     "keywords":     ["Yo", "Black"],
-    "type":         "library",
+    "homepage": "http://www.lablackroom.com",
     "license":      "MIT",
     "authors":      [
         {
@@ -11,26 +12,32 @@
             "homepage":  "http://www.lablackroom.com"
         }
     ],
-
-    "require": {
-        "php":                      ">=5.4.0",
-        "symfony/options-resolver": "~2.5",
-        "symfony/event-dispatcher": "~2.5",
-        "guzzlehttp/guzzle":        "~4",
-        "black/geo":                "~1.0"
-    },
-
-    "require-dev": {
-        "phpunit/phpunit": "~4.1"
-    },
-
-    "suggest": {
-        "monolog/monolog": "~1.10"
-    },
-
     "autoload": {
         "psr-4": {
             "Yo\\": "src/Yo"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "spec\\": "spec/",
+            "tests\\Yo\\": "tests/Yo"
+        }
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "symfony/options-resolver": "~2.5",
+        "symfony/event-dispatcher": "~2.5",
+        "guzzlehttp/guzzle": "~4",
+        "black/geo": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.1",
+        "phpspec/phpspec": "~2.0"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "suggest": {
+        "monolog/monolog": "~1.10"
     }
 }

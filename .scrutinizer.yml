@@ -5,5 +5,5 @@ tools:
 
 filter:
   excluded_paths:
-    - 'src/spec/*'
-    - 'tests/*'
+    - spec/*
+    - tests/*

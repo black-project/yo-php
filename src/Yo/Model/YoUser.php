@@ -47,7 +47,7 @@ class YoUser
     }
 
     /**
-     * @return mixed
+     * @return Coordinates
      */
     public function getLocation()
     {
