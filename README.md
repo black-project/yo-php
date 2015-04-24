@@ -72,9 +72,6 @@ $subscribers = $status->subscribersCount();
 
 ```
 
-If you want to convert the json to an array just replace `$status->subscribersCount()` by
- `$status->subscribersCount()->json()`
-
 
 #### Send a link:
 

@@ -40,9 +40,8 @@ class StatusServiceTest extends \PHPUnit_Framework_TestCase
     {
         $status = new StatusService($this->yo->getHttpClient(), $this->yo->getOptions());
 
-        $subscribers = $status->subscribersCount()->json();
+        $subscribers = $status->subscribersCount();
 
-        $this->assertEquals('1', $subscribers['result']);
-
+        $this->assertEquals('1', $subscribers);
     }
 }

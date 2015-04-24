@@ -48,16 +48,17 @@ class StatusService
     public function subscribersCount()
     {
         $response = $this->httpClient->get(
-            $this->options['base_url'] . '/subscribers_count/',
-            ['query' => [
-                'api_token' => $this->options['token']
-            ]]
+            $this->options['base_url'] . '/subscribers_count/', [
+                'query' => [
+                    'api_token' => $this->options['token'],
+                ],
+            ]
         );
 
         if ("200" !== $response->getStatusCode()) {
             throw new BadResponseException($response->getStatusCode(), (string) $response->getBody());
         }
 
-        return $response;
+        return $response->json()['count'];
     }
 }
