@@ -48,15 +48,16 @@ class SendYoService
     public function yoAll()
     {
         $response = $this->httpClient->post(
-            $this->options['base_url'] . '/yoall/',
-            ['body' => [
-                'api_token' => $this->options['token'],
-                'link' => $this->options['link'],
-                'location' => $this->options['location'],
-            ]]
+            $this->options['base_url'] . '/yoall/', [
+                'body' => [
+                    'api_token' => $this->options['token'],
+                    'link' => $this->options['link'],
+                    'location' => $this->options['location'],
+                ],
+            ]
         );
 
-        if ("201" !== $response->getStatusCode()) {
+        if ("200" !== $response->getStatusCode()) {
             throw new BadResponseException($response->getStatusCode(), (string) $response->getBody());
         }
 
@@ -72,13 +73,14 @@ class SendYoService
     public function yo($username)
     {
         $response = $this->httpClient->post(
-            $this->options['base_url'] . '/yo/',
-            ['body' => [
-                'api_token' => $this->options['token'],
-                'username' => $username,
-                'link' => $this->options['link'],
-                'location' => $this->options['location'],
-            ]]
+            $this->options['base_url'] . '/yo/', [
+                'body' => [
+                    'api_token' => $this->options['token'],
+                    'username' => $username,
+                    'link' => $this->options['link'],
+                    'location' => $this->options['location'],
+                ],
+            ]
         );
 
         if ("200" !== $response->getStatusCode()) {

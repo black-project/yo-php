@@ -51,7 +51,7 @@ class SendYoServiceTest extends \PHPUnit_Framework_TestCase
     public function it_should_send_a_yo_to_all()
     {
         $send = new SendYoService($this->yo->getHttpClient(), $this->yo->getOptions());
-        $this->assertEquals('201', $send->yoAll()->getStatusCode());
+        $this->assertEquals('200', $send->yoAll()->getStatusCode());
     }
 
     /**
@@ -81,7 +81,7 @@ class SendYoServiceTest extends \PHPUnit_Framework_TestCase
         $this->yo->addLink('http://www.desicomments.com/dc/21/50927/50927.gif');
 
         $send = new SendYoService($this->yo->getHttpClient(), $this->yo->getOptions());
-        $this->assertEquals('201', $send->yoAll()->getStatusCode());
+        $this->assertEquals('200', $send->yoAll()->getStatusCode());
     }
 
     /**
@@ -93,6 +93,6 @@ class SendYoServiceTest extends \PHPUnit_Framework_TestCase
         $this->yo->addLocation($coordinates);
 
         $send = new SendYoService($this->yo->getHttpClient(), $this->yo->getOptions());
-        $this->assertEquals('201', $send->yoAll()->getStatusCode());
+        $this->assertEquals('200', $send->yoAll()->getStatusCode());
     }
 }
