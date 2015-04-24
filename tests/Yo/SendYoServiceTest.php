@@ -16,9 +16,6 @@ use Yo\Service\SendYoService;
 
 /**
  * Class SendYoServiceTest
- *
- * @author  Alexandre 'pocky' Balmes <alexandre@lablackroom.com>
- * @license http://opensource.org/licenses/mit-license.php MIT
  */
 class SendYoServiceTest extends \PHPUnit_Framework_TestCase
 {

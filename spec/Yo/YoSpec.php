@@ -1,10 +1,21 @@
 <?php
+/*
+ * This file is part of the Yo package.
+ *
+ * (c) Alexandre Balmes <alexandre@lablackroom.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace spec\Yo;
 
 use Geo\Coordinates;
 use PhpSpec\ObjectBehavior;
 
+/**
+ * Class YoSpec
+ */
 class YoSpec extends ObjectBehavior
 {
     public function it_is_initializable()

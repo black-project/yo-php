@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Black package.
+ * This file is part of the Yo package.
  *
  * (c) Alexandre Balmes <alexandre@lablackroom.com>
  *
@@ -15,9 +15,6 @@ use Yo\Model\YoUser;
 
 /**
  * Class YoEvent
- *
- * @author  Alexandre 'pocky' Balmes <alexandre@lablackroom.com>
- * @license http://opensource.org/licenses/mit-license.php MIT
  */
 final class YoEvent extends Event
 {

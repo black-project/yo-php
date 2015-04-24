@@ -172,7 +172,7 @@ class YoController
     public function yoAction($username)
     {
         $yoUser     = new \Yo\Model\YoUser($username);
-        $logger     = new Monolog\Logger();
+        $logger     = new \Monolog\Logger();
         $dispatcher = new \Symfony\Component\EventDispatcher\EventDispatcher();
 
         $dispatcher->addSubscriber(new \Yo\Event\YoSubscriber($logger));
