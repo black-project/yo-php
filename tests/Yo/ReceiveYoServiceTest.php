@@ -40,6 +40,9 @@ class ReceiveYoServiceTest extends \PHPUnit_Framework_TestCase
      */
     protected $handler;
 
+    /**
+     * This test will simulate the process AFTER the response
+     */
     public function setUp()
     {
         $this->user    = new YoUser('fakeuser');
