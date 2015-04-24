@@ -1,0 +1,5 @@
+<?php
+
+return [
+    'api.token' => "your-token"
+];

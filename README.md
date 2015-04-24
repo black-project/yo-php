@@ -186,8 +186,7 @@ class YoController
 Running the tests
 -----------------
 
-There is no development key for Yo so the only way to pass the tests suite is to replace the fake token and run the
-tests.
+Rename (or copy) the `config.php.dist` to `config.php` and add your token. Then run the suite tests.
 
 Contributing
 ------------

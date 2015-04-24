@@ -33,7 +33,8 @@
     "require-dev": {
         "phpunit/phpunit": "~4.1",
         "phpspec/phpspec": "~2.0",
-        "monolog/monolog": "~1.0"
+        "monolog/monolog": "~1.0",
+        "mnapoli/php-di": "~4.0"
     },
     "config": {
         "bin-dir": "bin"

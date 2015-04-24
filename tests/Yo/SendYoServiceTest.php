@@ -10,6 +10,7 @@
 
 namespace Yo;
 
+use DI\ContainerBuilder;
 use Geo\Coordinates;
 use Yo\Service\SendYoService;
 
@@ -31,11 +32,15 @@ class SendYoServiceTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->yo = new Yo(['token' => 'myToken']);
+        $builder = new ContainerBuilder();
+        $builder->addDefinitions(__DIR__ . '/../config.php');
+
+        $container = $builder->build();
+        $this->yo  = new Yo(['token' => $container->get('api.token')]);
     }
 
     /**
-     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedException \GuzzleHttp\Exception\ClientException
      */
     public function it_should_not_send_a_yo_to_all()
     {
@@ -56,7 +61,7 @@ class SendYoServiceTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
-     * @expectedException GuzzleHttp\Exception\ClientException
+     * @expectedException \GuzzleHttp\Exception\ClientException
      */
     public function it_should_not_send_a_yo_because_we_are_not_friend()
     {

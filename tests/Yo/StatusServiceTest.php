@@ -10,6 +10,7 @@
 
 namespace Yo;
 
+use DI\ContainerBuilder;
 use Yo\Service\StatusService;
 
 /**
@@ -30,7 +31,11 @@ class StatusServiceTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->yo = new Yo(['token' => 'myToken']);
+        $builder = new ContainerBuilder();
+        $builder->addDefinitions(__DIR__ . '/../config.php');
+
+        $container = $builder->build();
+        $this->yo  = new Yo(['token' => $container->get('api.token')]);
     }
 
     /**
